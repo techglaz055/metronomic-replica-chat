@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { 
   Video, 
@@ -28,7 +29,8 @@ const FeaturesPage = () => {
       icon: Video,
       title: "NolanAI Video Generator",
       description: "Effortlessly create dynamic and professional-grade shots for your videos. With NolanAI Video Editor, customize angles, movements, and cinematic styles to bring your storyboards to life. From wide-angle establishing shots to close-ups, every frame is tailored to your script's vision with AI precision.",
-      color: "bg-purple-600"
+      color: "bg-purple-600",
+      bgImage: "/lovable-uploads/aa872a24-6b2e-4f46-88ee-ff2a941842b2.png"
     },
     {
       icon: FileText,
@@ -105,7 +107,12 @@ const FeaturesPage = () => {
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group"
+                className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group relative overflow-hidden"
+                style={feature.bgImage ? {
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${feature.bgImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                } : {}}
               >
                 <div className={`w-16 h-16 ${feature.color} rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                   <feature.icon size={32} className="text-white" />

@@ -10,6 +10,7 @@ import EthicalAI from '@/components/EthicalAI';
 import AuthModal from '@/components/AuthModal';
 import Dashboard from '@/components/Dashboard';
 import ScriptEditor from '@/components/ScriptEditor';
+import Chatbot from '@/components/Chatbot';
 
 const Index = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -59,6 +60,8 @@ const Index = () => {
       <ProducersSection />
       <SecuritySection />
       <EthicalAI />
+      
+      <Chatbot />
       
       <AuthModal
         isOpen={isAuthModalOpen}

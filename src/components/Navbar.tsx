@@ -91,12 +91,11 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
             </div>
           </div>
 
-          {/* Login Button */}
+          {/* Login Button - Improved visibility */}
           <div className="hidden md:block">
             <Button 
               onClick={onLoginClick}
-              variant="outline" 
-              className="border-slate-700 text-white hover:bg-slate-800"
+              className="bg-white text-slate-900 hover:bg-gray-100 font-medium px-6 py-2 rounded-full border-2 border-white"
             >
               Log in
             </Button>
@@ -164,8 +163,7 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                   onLoginClick();
                   setIsMenuOpen(false);
                 }}
-                variant="outline" 
-                className="w-full mt-4 border-slate-700 text-white hover:bg-slate-800"
+                className="w-full mt-4 bg-white text-slate-900 hover:bg-gray-100 font-medium"
               >
                 Log in
               </Button>
