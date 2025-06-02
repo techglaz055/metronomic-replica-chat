@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { 
   Video, 
   FileText, 
-  PresentationChart, 
+  Presentation, 
   Brain, 
   Calendar, 
   Lightbulb,
@@ -27,7 +27,7 @@ const FeaturesPage = () => {
       color: "bg-green-600"
     },
     {
-      icon: PresentationChart,
+      icon: Presentation,
       title: "AI PITCH DECK",
       description: "The essential tool for filmmakers seeking to craft captivating pitch decks effortlessly.",
       color: "bg-orange-600"
