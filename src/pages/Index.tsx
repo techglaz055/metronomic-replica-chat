@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -11,6 +10,7 @@ import AuthModal from '@/components/AuthModal';
 import Dashboard from '@/components/Dashboard';
 import ScriptEditor from '@/components/ScriptEditor';
 import Chatbot from '@/components/Chatbot';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -62,6 +62,7 @@ const Index = () => {
       <EthicalAI />
       
       <Chatbot />
+      <Footer />
       
       <AuthModal
         isOpen={isAuthModalOpen}

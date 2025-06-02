@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { 
   Video, 
@@ -15,6 +14,7 @@ import Navbar from '@/components/Navbar';
 import Chatbot from '@/components/Chatbot';
 import { useState } from 'react';
 import AuthModal from '@/components/AuthModal';
+import Footer from '@/components/Footer';
 
 const FeaturesPage = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -132,6 +132,7 @@ const FeaturesPage = () => {
       </section>
 
       <Chatbot />
+      <Footer />
       <AuthModal
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}

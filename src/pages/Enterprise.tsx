@@ -1,10 +1,10 @@
-
 import { Button } from '@/components/ui/button';
 import { Building2, Shield, Zap, Users, Globe, Headphones } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Chatbot from '@/components/Chatbot';
 import { useState } from 'react';
 import AuthModal from '@/components/AuthModal';
+import Footer from '@/components/Footer';
 
 const Enterprise = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -133,6 +133,7 @@ const Enterprise = () => {
       </section>
 
       <Chatbot />
+      <Footer />
       <AuthModal
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}

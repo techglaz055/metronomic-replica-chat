@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Chatbot from '@/components/Chatbot';
 import { useState } from 'react';
 import AuthModal from '@/components/AuthModal';
+import Footer from '@/components/Footer';
 
 const Education = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -119,6 +120,7 @@ const Education = () => {
       </section>
 
       <Chatbot />
+      <Footer />
       <AuthModal
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
