@@ -1,8 +1,18 @@
-
 import { Button } from '@/components/ui/button';
 import { Check, X } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Chatbot from '@/components/Chatbot';
+import { useState } from 'react';
+import AuthModal from '@/components/AuthModal';
 
 const Pricing = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  const handleLogin = (email: string) => {
+    console.log('Logged in:', email);
+    setIsAuthModalOpen(false);
+  };
+
   const features = [
     {
       name: "AI Budgeting",
@@ -78,6 +88,8 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen bg-slate-900">
+      <Navbar onLoginClick={() => setIsAuthModalOpen(true)} />
+      
       {/* Header */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,6 +163,13 @@ const Pricing = () => {
           </div>
         </div>
       </section>
+
+      <Chatbot />
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onLogin={handleLogin}
+      />
     </div>
   );
 };

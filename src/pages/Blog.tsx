@@ -1,7 +1,17 @@
-
 import { Button } from '@/components/ui/button';
+import Navbar from '@/components/Navbar';
+import Chatbot from '@/components/Chatbot';
+import { useState } from 'react';
+import AuthModal from '@/components/AuthModal';
 
 const Blog = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  const handleLogin = (email: string) => {
+    console.log('Logged in:', email);
+    setIsAuthModalOpen(false);
+  };
+
   const blogPosts = [
     {
       id: 1,
@@ -38,6 +48,8 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-slate-900">
+      <Navbar onLoginClick={() => setIsAuthModalOpen(true)} />
+      
       {/* Header */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,6 +144,13 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      <Chatbot />
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onLogin={handleLogin}
+      />
     </div>
   );
 };
