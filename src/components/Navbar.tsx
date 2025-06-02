@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 interface NavbarProps {
   onLoginClick: () => void;
@@ -9,6 +10,7 @@ interface NavbarProps {
 
 const Navbar = ({ onLoginClick }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
@@ -16,34 +18,76 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-white">
+            <Link to="/" className="text-2xl font-bold text-white">
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 NolanAI
               </span>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+              <Link 
+                to="/" 
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/' 
+                    ? 'text-white' 
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 About Us
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+              </Link>
+              <Link 
+                to="/pricing" 
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/pricing' 
+                    ? 'text-white' 
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Pricing
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+              </Link>
+              <Link 
+                to="/features" 
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/features' 
+                    ? 'text-white' 
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Features
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+              </Link>
+              <Link 
+                to="/blog" 
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/blog' 
+                    ? 'text-white' 
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Blog
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+              </Link>
+              <Link 
+                to="/education" 
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/education' 
+                    ? 'text-white' 
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Education
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+              </Link>
+              <Link 
+                to="/enterprise" 
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/enterprise' 
+                    ? 'text-white' 
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Studios
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -73,26 +117,53 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-900/95 rounded-lg mt-2">
-              <a href="#" className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+              <Link 
+                to="/" 
+                className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 About Us
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+              </Link>
+              <Link 
+                to="/pricing" 
+                className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Pricing
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+              </Link>
+              <Link 
+                to="/features" 
+                className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Features
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+              </Link>
+              <Link 
+                to="/blog" 
+                className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Blog
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+              </Link>
+              <Link 
+                to="/education" 
+                className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Education
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+              </Link>
+              <Link 
+                to="/enterprise" 
+                className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Studios
-              </a>
+              </Link>
               <Button 
-                onClick={onLoginClick}
+                onClick={() => {
+                  onLoginClick();
+                  setIsMenuOpen(false);
+                }}
                 variant="outline" 
                 className="w-full mt-4 border-slate-700 text-white hover:bg-slate-800"
               >
